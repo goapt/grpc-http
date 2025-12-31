@@ -6,7 +6,7 @@
 ## 安装
 
 ```shell
-go install github.com/goapt/cmd/protoc-gen-go-http@latest
+go install github.com/goapt/grpc-http/cmd/protoc-gen-go-http@latest
 ```
 
 ## 生成
