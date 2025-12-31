@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package user.api.v1;
+
+option go_package = "gen/user/v1;user";
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "google/api/httpbody.proto";
+
+// User Service
+service UserService {
+    // List
+    rpc List(ListRequest) returns (ListResponse) {
+        option (google.api.http) = {
+            get: "/article/list"
+        };
+    }
+    // List2
+    rpc List2(ListRequest) returns (ListResponse) {
+        option (google.api.http) = {
+            post: "/article/list?id={user_id}"
+            body: "*"
+        };
+    }
+    // PUT
+    rpc Put(ListRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            put: "/article/update"
+            body: "*"
+        };
+    }
+    // Create
+    rpc Create(CreateRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            post: "/article/create/{user_id}"
+            body: "*"
+        };
+    }
+
+    rpc Path(PathRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            post: "/article/*path"
+            body: "*"
+        };
+    }
+
+    rpc HTML(google.protobuf.Empty) returns (google.api.HttpBody) {
+        option (google.api.http) = {
+            get: "/article/html"
+        };
+    }
+}
+
+message User {
+    int32 id = 1;
+    string name = 2;
+    string email = 3;
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 6;
+}
+
+message CreateRequest {
+    string name = 2;
+    string email = 3;
+}
+
+message CreateResponse {
+    int32 id = 1;
+}
+
+message PathRequest {
+    string path = 1;
+}
+
+
+message ListRequest {
+  int32 page = 1;
+}
+
+message ListResponse {
+    repeated User results = 1;
+}

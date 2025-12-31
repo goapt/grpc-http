@@ -1,0 +1,80 @@
+{{$svrType := .ServiceType}}
+{{$svrName := .ServiceName}}
+{{- if ne .Command ""}}
+    {{.Command}}{{- end}}
+type {{.ServiceType}}HTTPServer interface {
+{{- range .MethodSets}}
+    {{- if ne .Command ""}}
+    {{.Command}}{{- end}}
+    {{.Name}}(context.Context, *{{.Request}}) (*{{.Reply}}, error)
+{{- end}}
+}
+
+type {{$svrType}} struct{
+    server {{.ServiceType}}HTTPServer
+    mux contract.ServeMux
+    codec contract.Codec
+}
+
+func (s *{{$svrType}}) RegisterService(){
+{{- range .Methods}}
+    s.mux.HandleFunc("{{.Method}} {{.Path}}", s.{{.Name}}{{if not (eq .Num 0)}}{{.Num}}{{end}})
+{{- end}}
+}
+
+
+
+func Register{{.ServiceType}}HTTPServer(mux contract.ServeMux,codec contract.Codec, srv {{.ServiceType}}HTTPServer) {
+    s := &{{$svrType}}{
+        server: srv,
+        mux: mux,
+        codec:codec,
+    }
+    s.RegisterService()
+}
+
+{{range .Methods}}
+    func (s *{{$svrType}}) {{.Name}}{{if not (eq .Num 0)}}{{.Num}}{{end}}(w http.ResponseWriter, r *http.Request) {
+    var in {{.Request}}
+    {{- if not (eq .Request "emptypb.Empty")}}
+        if err := s.codec.Decode(r, &in{{.Body}}); err != nil {
+            s.codec.Encode(w, r, err)
+            return
+        }
+    {{- end}}
+    {{- if not (eq .Request "emptypb.Empty")}}
+
+        if err := s.codec.Validate(&in); err != nil {
+            s.codec.Encode(w, r, err)
+            return
+        }
+    {{- end}}
+    {{- if eq .Reply "emptypb.Empty"}}
+
+        _, err := s.server.{{.Name}}(r.Context(), &in)
+        if err != nil {
+            s.codec.Encode(w, r, err)
+            return
+        }
+        return
+    {{- else if eq .Reply "httpbody.HttpBody"}}
+
+        out, err := s.server.{{.Name}}(r.Context(), &in)
+        if err != nil {
+            s.codec.Encode(w, r, err)
+            return
+        }
+        w.Header().Set("Content-Type", out.ContentType)
+        _,_ = w.Write(out.Data)
+        return
+    {{- else}}
+
+        out, err := s.server.{{.Name}}(r.Context(), &in)
+        if err != nil {
+            s.codec.Encode(w, r, err)
+        }
+        s.codec.Encode(w, r, out)
+        return
+    {{- end}}
+    }
+{{end}}
