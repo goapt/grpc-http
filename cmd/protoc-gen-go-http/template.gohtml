@@ -72,6 +72,7 @@ func Register{{.ServiceType}}HTTPServer(mux contract.ServeMux,codec contract.Cod
         out, err := s.server.{{.Name}}(r.Context(), &in)
         if err != nil {
             s.codec.Encode(w, r, err)
+            return
         }
         s.codec.Encode(w, r, out)
         return

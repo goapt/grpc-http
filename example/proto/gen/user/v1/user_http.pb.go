@@ -69,6 +69,7 @@ func (s *UserService) List(w http.ResponseWriter, r *http.Request) {
 	out, err := s.server.List(r.Context(), &in)
 	if err != nil {
 		s.codec.Encode(w, r, err)
+		return
 	}
 	s.codec.Encode(w, r, out)
 	return
@@ -89,6 +90,7 @@ func (s *UserService) List2(w http.ResponseWriter, r *http.Request) {
 	out, err := s.server.List2(r.Context(), &in)
 	if err != nil {
 		s.codec.Encode(w, r, err)
+		return
 	}
 	s.codec.Encode(w, r, out)
 	return
