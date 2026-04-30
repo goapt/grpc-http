@@ -12,8 +12,8 @@ type {{.ServiceType}}HTTPServer interface {
 
 type {{$svrType}} struct{
     server {{.ServiceType}}HTTPServer
-    mux contract.ServeMux
-    codec contract.Codec
+    mux ServeMux
+    codec Codec
 }
 
 func (s *{{$svrType}}) RegisterService(){
@@ -24,7 +24,7 @@ func (s *{{$svrType}}) RegisterService(){
 
 
 
-func Register{{.ServiceType}}HTTPServer(mux contract.ServeMux,codec contract.Codec, srv {{.ServiceType}}HTTPServer) {
+func Register{{.ServiceType}}HTTPServer(mux ServeMux,codec Codec, srv {{.ServiceType}}HTTPServer) {
     s := &{{$svrType}}{
         server: srv,
         mux: mux,

@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	apiv1 "github.com/goapt/grpc-http/example/proto/gen/user/v1"
+	apiv1 "github.com/goapt/grpc-http/example/proto/gen/demo/v1"
 	httpbody "google.golang.org/genproto/googleapis/api/httpbody"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"

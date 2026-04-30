@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.1
 // - protoc             (unknown)
-// source: user/v1/user.proto
+// source: demo/v1/user.proto
 
 package apiv1
 
@@ -21,10 +21,10 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	UserService_List_FullMethodName   = "/user.api.v1.UserService/List"
-	UserService_Put_FullMethodName    = "/user.api.v1.UserService/Put"
-	UserService_Create_FullMethodName = "/user.api.v1.UserService/Create"
-	UserService_HTML_FullMethodName   = "/user.api.v1.UserService/HTML"
+	UserService_List_FullMethodName   = "/demo.api.v1.UserService/List"
+	UserService_Put_FullMethodName    = "/demo.api.v1.UserService/Put"
+	UserService_Create_FullMethodName = "/demo.api.v1.UserService/Create"
+	UserService_HTML_FullMethodName   = "/demo.api.v1.UserService/HTML"
 )
 
 // UserServiceClient is the client API for UserService service.
@@ -224,7 +224,7 @@ func _UserService_HTML_Handler(srv interface{}, ctx context.Context, dec func(in
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var UserService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "user.api.v1.UserService",
+	ServiceName: "demo.api.v1.UserService",
 	HandlerType: (*UserServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -245,5 +245,5 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "user/v1/user.proto",
+	Metadata: "demo/v1/user.proto",
 }

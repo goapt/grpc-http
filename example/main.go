@@ -5,13 +5,14 @@ import (
 	"net/http"
 
 	"github.com/goapt/grpc-http/example/codec"
-	apiv1 "github.com/goapt/grpc-http/example/proto/gen/user/v1"
+	apiv1 "github.com/goapt/grpc-http/example/proto/gen/demo/v1"
 	"github.com/goapt/grpc-http/example/service"
 )
 
 func main() {
 	mux := http.NewServeMux()
 	apiv1.RegisterUserServiceHTTPServer(mux, codec.JSONCodec{}, &service.UserService{})
+	apiv1.RegisterGreeterServiceHTTPServer(mux, codec.JSONCodec{}, &service.GreeterService{})
 
 	server := &http.Server{
 		Addr:    ":8080",

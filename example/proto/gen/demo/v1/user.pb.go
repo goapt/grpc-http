@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        (unknown)
-// source: user/v1/user.proto
+// source: demo/v1/user.proto
 
 package apiv1
 
@@ -38,7 +38,7 @@ type User struct {
 
 func (x *User) Reset() {
 	*x = User{}
-	mi := &file_user_v1_user_proto_msgTypes[0]
+	mi := &file_demo_v1_user_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -50,7 +50,7 @@ func (x *User) String() string {
 func (*User) ProtoMessage() {}
 
 func (x *User) ProtoReflect() protoreflect.Message {
-	mi := &file_user_v1_user_proto_msgTypes[0]
+	mi := &file_demo_v1_user_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -63,7 +63,7 @@ func (x *User) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use User.ProtoReflect.Descriptor instead.
 func (*User) Descriptor() ([]byte, []int) {
-	return file_user_v1_user_proto_rawDescGZIP(), []int{0}
+	return file_demo_v1_user_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *User) GetId() int32 {
@@ -111,7 +111,7 @@ type CreateRequest struct {
 
 func (x *CreateRequest) Reset() {
 	*x = CreateRequest{}
-	mi := &file_user_v1_user_proto_msgTypes[1]
+	mi := &file_demo_v1_user_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -123,7 +123,7 @@ func (x *CreateRequest) String() string {
 func (*CreateRequest) ProtoMessage() {}
 
 func (x *CreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_user_v1_user_proto_msgTypes[1]
+	mi := &file_demo_v1_user_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -136,7 +136,7 @@ func (x *CreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
 func (*CreateRequest) Descriptor() ([]byte, []int) {
-	return file_user_v1_user_proto_rawDescGZIP(), []int{1}
+	return file_demo_v1_user_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CreateRequest) GetName() string {
@@ -162,7 +162,7 @@ type CreateResponse struct {
 
 func (x *CreateResponse) Reset() {
 	*x = CreateResponse{}
-	mi := &file_user_v1_user_proto_msgTypes[2]
+	mi := &file_demo_v1_user_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -174,7 +174,7 @@ func (x *CreateResponse) String() string {
 func (*CreateResponse) ProtoMessage() {}
 
 func (x *CreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_user_v1_user_proto_msgTypes[2]
+	mi := &file_demo_v1_user_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -187,7 +187,7 @@ func (x *CreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateResponse.ProtoReflect.Descriptor instead.
 func (*CreateResponse) Descriptor() ([]byte, []int) {
-	return file_user_v1_user_proto_rawDescGZIP(), []int{2}
+	return file_demo_v1_user_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateResponse) GetId() int32 {
@@ -206,7 +206,7 @@ type PathRequest struct {
 
 func (x *PathRequest) Reset() {
 	*x = PathRequest{}
-	mi := &file_user_v1_user_proto_msgTypes[3]
+	mi := &file_demo_v1_user_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -218,7 +218,7 @@ func (x *PathRequest) String() string {
 func (*PathRequest) ProtoMessage() {}
 
 func (x *PathRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_user_v1_user_proto_msgTypes[3]
+	mi := &file_demo_v1_user_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -231,7 +231,7 @@ func (x *PathRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PathRequest.ProtoReflect.Descriptor instead.
 func (*PathRequest) Descriptor() ([]byte, []int) {
-	return file_user_v1_user_proto_rawDescGZIP(), []int{3}
+	return file_demo_v1_user_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *PathRequest) GetPath() string {
@@ -250,7 +250,7 @@ type ListRequest struct {
 
 func (x *ListRequest) Reset() {
 	*x = ListRequest{}
-	mi := &file_user_v1_user_proto_msgTypes[4]
+	mi := &file_demo_v1_user_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -262,7 +262,7 @@ func (x *ListRequest) String() string {
 func (*ListRequest) ProtoMessage() {}
 
 func (x *ListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_user_v1_user_proto_msgTypes[4]
+	mi := &file_demo_v1_user_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -275,7 +275,7 @@ func (x *ListRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRequest.ProtoReflect.Descriptor instead.
 func (*ListRequest) Descriptor() ([]byte, []int) {
-	return file_user_v1_user_proto_rawDescGZIP(), []int{4}
+	return file_demo_v1_user_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ListRequest) GetPage() int32 {
@@ -294,7 +294,7 @@ type ListResponse struct {
 
 func (x *ListResponse) Reset() {
 	*x = ListResponse{}
-	mi := &file_user_v1_user_proto_msgTypes[5]
+	mi := &file_demo_v1_user_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -306,7 +306,7 @@ func (x *ListResponse) String() string {
 func (*ListResponse) ProtoMessage() {}
 
 func (x *ListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_user_v1_user_proto_msgTypes[5]
+	mi := &file_demo_v1_user_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -319,7 +319,7 @@ func (x *ListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListResponse.ProtoReflect.Descriptor instead.
 func (*ListResponse) Descriptor() ([]byte, []int) {
-	return file_user_v1_user_proto_rawDescGZIP(), []int{5}
+	return file_demo_v1_user_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ListResponse) GetResults() []*User {
@@ -329,11 +329,11 @@ func (x *ListResponse) GetResults() []*User {
 	return nil
 }
 
-var File_user_v1_user_proto protoreflect.FileDescriptor
+var File_demo_v1_user_proto protoreflect.FileDescriptor
 
-const file_user_v1_user_proto_rawDesc = "" +
+const file_demo_v1_user_proto_rawDesc = "" +
 	"\n" +
-	"\x12user/v1/user.proto\x12\vuser.api.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/httpbody.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb6\x01\n" +
+	"\x12demo/v1/user.proto\x12\vdemo.api.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/httpbody.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb6\x01\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
@@ -352,50 +352,50 @@ const file_user_v1_user_proto_rawDesc = "" +
 	"\vListRequest\x12\x12\n" +
 	"\x04page\x18\x01 \x01(\x05R\x04page\";\n" +
 	"\fListResponse\x12+\n" +
-	"\aresults\x18\x01 \x03(\v2\x11.user.api.v1.UserR\aresults2\xe7\x02\n" +
+	"\aresults\x18\x01 \x03(\v2\x11.demo.api.v1.UserR\aresults2\xe7\x02\n" +
 	"\vUserService\x12R\n" +
-	"\x04List\x12\x18.user.api.v1.ListRequest\x1a\x19.user.api.v1.ListResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/article/list\x12S\n" +
-	"\x03Put\x12\x18.user.api.v1.ListRequest\x1a\x16.google.protobuf.Empty\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\x1a\x0f/article/update\x12b\n" +
-	"\x06Create\x12\x1a.user.api.v1.CreateRequest\x1a\x16.google.protobuf.Empty\"$\x82\xd3\xe4\x93\x02\x1e:\x01*\"\x19/article/create/{user_id}\x12K\n" +
+	"\x04List\x12\x18.demo.api.v1.ListRequest\x1a\x19.demo.api.v1.ListResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/article/list\x12S\n" +
+	"\x03Put\x12\x18.demo.api.v1.ListRequest\x1a\x16.google.protobuf.Empty\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\x1a\x0f/article/update\x12b\n" +
+	"\x06Create\x12\x1a.demo.api.v1.CreateRequest\x1a\x16.google.protobuf.Empty\"$\x82\xd3\xe4\x93\x02\x1e:\x01*\"\x19/article/create/{user_id}\x12K\n" +
 	"\x04HTML\x12\x16.google.protobuf.Empty\x1a\x14.google.api.HttpBody\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/article/htmlB\xa6\x01\n" +
-	"\x0fcom.user.api.v1B\tUserProtoP\x01Z:github.com/goapt/grpc-http/example/proto/gen/user/v1;apiv1\xa2\x02\x03UAX\xaa\x02\vUser.Api.V1\xca\x02\vUser\\Api\\V1\xe2\x02\x17User\\Api\\V1\\GPBMetadata\xea\x02\rUser::Api::V1b\x06proto3"
+	"\x0fcom.demo.api.v1B\tUserProtoP\x01Z:github.com/goapt/grpc-http/example/proto/gen/demo/v1;apiv1\xa2\x02\x03DAX\xaa\x02\vDemo.Api.V1\xca\x02\vDemo\\Api\\V1\xe2\x02\x17Demo\\Api\\V1\\GPBMetadata\xea\x02\rDemo::Api::V1b\x06proto3"
 
 var (
-	file_user_v1_user_proto_rawDescOnce sync.Once
-	file_user_v1_user_proto_rawDescData []byte
+	file_demo_v1_user_proto_rawDescOnce sync.Once
+	file_demo_v1_user_proto_rawDescData []byte
 )
 
-func file_user_v1_user_proto_rawDescGZIP() []byte {
-	file_user_v1_user_proto_rawDescOnce.Do(func() {
-		file_user_v1_user_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_user_v1_user_proto_rawDesc), len(file_user_v1_user_proto_rawDesc)))
+func file_demo_v1_user_proto_rawDescGZIP() []byte {
+	file_demo_v1_user_proto_rawDescOnce.Do(func() {
+		file_demo_v1_user_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_demo_v1_user_proto_rawDesc), len(file_demo_v1_user_proto_rawDesc)))
 	})
-	return file_user_v1_user_proto_rawDescData
+	return file_demo_v1_user_proto_rawDescData
 }
 
-var file_user_v1_user_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
-var file_user_v1_user_proto_goTypes = []any{
-	(*User)(nil),                  // 0: user.api.v1.User
-	(*CreateRequest)(nil),         // 1: user.api.v1.CreateRequest
-	(*CreateResponse)(nil),        // 2: user.api.v1.CreateResponse
-	(*PathRequest)(nil),           // 3: user.api.v1.PathRequest
-	(*ListRequest)(nil),           // 4: user.api.v1.ListRequest
-	(*ListResponse)(nil),          // 5: user.api.v1.ListResponse
+var file_demo_v1_user_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_demo_v1_user_proto_goTypes = []any{
+	(*User)(nil),                  // 0: demo.api.v1.User
+	(*CreateRequest)(nil),         // 1: demo.api.v1.CreateRequest
+	(*CreateResponse)(nil),        // 2: demo.api.v1.CreateResponse
+	(*PathRequest)(nil),           // 3: demo.api.v1.PathRequest
+	(*ListRequest)(nil),           // 4: demo.api.v1.ListRequest
+	(*ListResponse)(nil),          // 5: demo.api.v1.ListResponse
 	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
 	(*emptypb.Empty)(nil),         // 7: google.protobuf.Empty
 	(*httpbody.HttpBody)(nil),     // 8: google.api.HttpBody
 }
-var file_user_v1_user_proto_depIdxs = []int32{
-	6, // 0: user.api.v1.User.created_at:type_name -> google.protobuf.Timestamp
-	6, // 1: user.api.v1.User.updated_at:type_name -> google.protobuf.Timestamp
-	0, // 2: user.api.v1.ListResponse.results:type_name -> user.api.v1.User
-	4, // 3: user.api.v1.UserService.List:input_type -> user.api.v1.ListRequest
-	4, // 4: user.api.v1.UserService.Put:input_type -> user.api.v1.ListRequest
-	1, // 5: user.api.v1.UserService.Create:input_type -> user.api.v1.CreateRequest
-	7, // 6: user.api.v1.UserService.HTML:input_type -> google.protobuf.Empty
-	5, // 7: user.api.v1.UserService.List:output_type -> user.api.v1.ListResponse
-	7, // 8: user.api.v1.UserService.Put:output_type -> google.protobuf.Empty
-	7, // 9: user.api.v1.UserService.Create:output_type -> google.protobuf.Empty
-	8, // 10: user.api.v1.UserService.HTML:output_type -> google.api.HttpBody
+var file_demo_v1_user_proto_depIdxs = []int32{
+	6, // 0: demo.api.v1.User.created_at:type_name -> google.protobuf.Timestamp
+	6, // 1: demo.api.v1.User.updated_at:type_name -> google.protobuf.Timestamp
+	0, // 2: demo.api.v1.ListResponse.results:type_name -> demo.api.v1.User
+	4, // 3: demo.api.v1.UserService.List:input_type -> demo.api.v1.ListRequest
+	4, // 4: demo.api.v1.UserService.Put:input_type -> demo.api.v1.ListRequest
+	1, // 5: demo.api.v1.UserService.Create:input_type -> demo.api.v1.CreateRequest
+	7, // 6: demo.api.v1.UserService.HTML:input_type -> google.protobuf.Empty
+	5, // 7: demo.api.v1.UserService.List:output_type -> demo.api.v1.ListResponse
+	7, // 8: demo.api.v1.UserService.Put:output_type -> google.protobuf.Empty
+	7, // 9: demo.api.v1.UserService.Create:output_type -> google.protobuf.Empty
+	8, // 10: demo.api.v1.UserService.HTML:output_type -> google.api.HttpBody
 	7, // [7:11] is the sub-list for method output_type
 	3, // [3:7] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -403,26 +403,26 @@ var file_user_v1_user_proto_depIdxs = []int32{
 	0, // [0:3] is the sub-list for field type_name
 }
 
-func init() { file_user_v1_user_proto_init() }
-func file_user_v1_user_proto_init() {
-	if File_user_v1_user_proto != nil {
+func init() { file_demo_v1_user_proto_init() }
+func file_demo_v1_user_proto_init() {
+	if File_demo_v1_user_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_user_v1_user_proto_rawDesc), len(file_user_v1_user_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_demo_v1_user_proto_rawDesc), len(file_demo_v1_user_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_user_v1_user_proto_goTypes,
-		DependencyIndexes: file_user_v1_user_proto_depIdxs,
-		MessageInfos:      file_user_v1_user_proto_msgTypes,
+		GoTypes:           file_demo_v1_user_proto_goTypes,
+		DependencyIndexes: file_demo_v1_user_proto_depIdxs,
+		MessageInfos:      file_demo_v1_user_proto_msgTypes,
 	}.Build()
-	File_user_v1_user_proto = out.File
-	file_user_v1_user_proto_goTypes = nil
-	file_user_v1_user_proto_depIdxs = nil
+	File_demo_v1_user_proto = out.File
+	file_demo_v1_user_proto_goTypes = nil
+	file_demo_v1_user_proto_depIdxs = nil
 }

@@ -23,11 +23,12 @@ func main() {
 		ParamFunc: flag.CommandLine.Set,
 	}.Run(func(gen *protogen.Plugin) error {
 		gen.SupportedFeatures = uint64(pluginpb.CodeGeneratorResponse_FEATURE_PROTO3_OPTIONAL)
+		runtimeGenerated := make(map[string]bool)
 		for _, f := range gen.Files {
 			if !f.Generate {
 				continue
 			}
-			generateFile(gen, f, *omitempty)
+			generateFile(gen, f, *omitempty, runtimeGenerated)
 		}
 		return nil
 	})
