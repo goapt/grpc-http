@@ -25,7 +25,9 @@ func (JSONCodec) Decode(r *http.Request, v any) error {
 	if r.Body == nil {
 		return nil
 	}
-	defer r.Body.Close()
+	defer func() {
+		_ = r.Body.Close()
+	}()
 
 	if err := json.NewDecoder(r.Body).Decode(v); err != nil {
 		if errors.Is(err, io.EOF) {
