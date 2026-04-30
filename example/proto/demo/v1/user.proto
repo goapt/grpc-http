@@ -13,7 +13,7 @@ option go_package = "gen/demo/v1;demo";
 service UserService {
   // List
   rpc List(ListRequest) returns (ListResponse) {
-    option (google.api.http) = {get: "/article/list"};
+    option (google.api.http) = {get: "/article/list/{user_id}"};
   }
   // PUT
   rpc Put(ListRequest) returns (google.protobuf.Empty) {
@@ -25,7 +25,7 @@ service UserService {
   // Create
   rpc Create(CreateRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      post: "/article/create/{user_id}"
+      post: "/article/create"
       body: "*"
     };
   }
@@ -58,6 +58,7 @@ message PathRequest {
 
 message ListRequest {
   int32 page = 1;
+  int32 user_id = 2;
 }
 
 message ListResponse {

@@ -244,6 +244,7 @@ func (x *PathRequest) GetPath() string {
 type ListRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Page          int32                  `protobuf:"varint,1,opt,name=page,proto3" json:"page,omitempty"`
+	UserId        int32                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -281,6 +282,13 @@ func (*ListRequest) Descriptor() ([]byte, []int) {
 func (x *ListRequest) GetPage() int32 {
 	if x != nil {
 		return x.Page
+	}
+	return 0
+}
+
+func (x *ListRequest) GetUserId() int32 {
+	if x != nil {
+		return x.UserId
 	}
 	return 0
 }
@@ -348,15 +356,16 @@ const file_demo_v1_user_proto_rawDesc = "" +
 	"\x0eCreateResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\"!\n" +
 	"\vPathRequest\x12\x12\n" +
-	"\x04path\x18\x01 \x01(\tR\x04path\"!\n" +
+	"\x04path\x18\x01 \x01(\tR\x04path\":\n" +
 	"\vListRequest\x12\x12\n" +
-	"\x04page\x18\x01 \x01(\x05R\x04page\";\n" +
+	"\x04page\x18\x01 \x01(\x05R\x04page\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\x05R\x06userId\";\n" +
 	"\fListResponse\x12+\n" +
 	"\aresults\x18\x01 \x03(\v2\x11.demo.api.v1.UserR\aresults2\xe7\x02\n" +
-	"\vUserService\x12R\n" +
-	"\x04List\x12\x18.demo.api.v1.ListRequest\x1a\x19.demo.api.v1.ListResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/article/list\x12S\n" +
-	"\x03Put\x12\x18.demo.api.v1.ListRequest\x1a\x16.google.protobuf.Empty\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\x1a\x0f/article/update\x12b\n" +
-	"\x06Create\x12\x1a.demo.api.v1.CreateRequest\x1a\x16.google.protobuf.Empty\"$\x82\xd3\xe4\x93\x02\x1e:\x01*\"\x19/article/create/{user_id}\x12K\n" +
+	"\vUserService\x12\\\n" +
+	"\x04List\x12\x18.demo.api.v1.ListRequest\x1a\x19.demo.api.v1.ListResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\x12\x17/article/list/{user_id}\x12S\n" +
+	"\x03Put\x12\x18.demo.api.v1.ListRequest\x1a\x16.google.protobuf.Empty\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\x1a\x0f/article/update\x12X\n" +
+	"\x06Create\x12\x1a.demo.api.v1.CreateRequest\x1a\x16.google.protobuf.Empty\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/article/create\x12K\n" +
 	"\x04HTML\x12\x16.google.protobuf.Empty\x1a\x14.google.api.HttpBody\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/article/htmlB\xa6\x01\n" +
 	"\x0fcom.demo.api.v1B\tUserProtoP\x01Z:github.com/goapt/grpc-http/example/proto/gen/demo/v1;apiv1\xa2\x02\x03DAX\xaa\x02\vDemo.Api.V1\xca\x02\vDemo\\Api\\V1\xe2\x02\x17Demo\\Api\\V1\\GPBMetadata\xea\x02\rDemo::Api::V1b\x06proto3"
 

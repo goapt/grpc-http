@@ -81,7 +81,7 @@ func generateRuntimeFile(gen *protogen.Plugin, file *protogen.File) {
 	g.P("}")
 }
 
-func genService(gen *protogen.Plugin, file *protogen.File, g *protogen.GeneratedFile, service *protogen.Service, omitempty bool, methodSets map[string]int) {
+func genService(_ *protogen.Plugin, file *protogen.File, g *protogen.GeneratedFile, service *protogen.Service, omitempty bool, methodSets map[string]int) {
 	if service.Desc.Options().(*descriptorpb.ServiceOptions).GetDeprecated() {
 		g.P("//")
 		g.P(deprecationComment)
@@ -186,14 +186,11 @@ func buildMethodDesc(g *protogen.GeneratedFile, service *protogen.Service, m *pr
 		methodSets[service.GoName+m.GoName]++
 	}()
 	vars := buildPathVars(m, path)
-	fields := m.Input.Desc.Fields()
 	for _, v := range vars {
+		fields := m.Input.Desc.Fields()
 		for _, field := range strings.Split(v, ".") {
 			if strings.TrimSpace(field) == "" {
 				continue
-			}
-			if strings.Contains(field, ":") {
-				field = strings.Split(field, ":")[0]
 			}
 			fd := fields.ByName(protoreflect.Name(field))
 			if fd == nil {
@@ -222,14 +219,23 @@ func buildMethodDesc(g *protogen.GeneratedFile, service *protogen.Service, m *pr
 }
 
 func buildPathVars(method *protogen.Method, path string) (res []string) {
-	for _, v := range strings.Split(path, "/") {
-		if strings.HasPrefix(v, ":") {
-			name := strings.TrimLeft(v, ":")
-			res = append(res, name)
-		}
+	_ = method
 
-		if strings.HasPrefix(v, "*") {
-			name := strings.TrimLeft(v, "*")
+	// net/http (Go 1.22+) route params: {name} / {name...}
+	// Keep support for "{name=...}" style from google.api.http templates.
+	for _, match := range pathRe.FindAllString(path, -1) {
+		name := strings.TrimSuffix(strings.TrimPrefix(match, "{"), "}")
+		if name == "" || name == "$" {
+			continue
+		}
+		if before, ok := strings.CutSuffix(name, "..."); ok {
+			name = before
+		}
+		if idx := strings.Index(name, "="); idx >= 0 {
+			name = name[:idx]
+		}
+		name = strings.TrimSpace(name)
+		if name != "" {
 			res = append(res, name)
 		}
 	}
