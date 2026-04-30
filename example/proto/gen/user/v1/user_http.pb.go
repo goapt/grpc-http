@@ -20,12 +20,10 @@ import (
 type UserServiceHTTPServer interface {
 	// Create
 	Create(context.Context, *CreateRequest) (*emptypb.Empty, error)
+	// HTML
 	HTML(context.Context, *emptypb.Empty) (*httpbody.HttpBody, error)
 	// List
 	List(context.Context, *ListRequest) (*ListResponse, error)
-	// List2
-	List2(context.Context, *ListRequest) (*ListResponse, error)
-	Path(context.Context, *PathRequest) (*emptypb.Empty, error)
 	// PUT
 	Put(context.Context, *ListRequest) (*emptypb.Empty, error)
 }
@@ -38,10 +36,8 @@ type UserService struct {
 
 func (s *UserService) RegisterService() {
 	s.mux.HandleFunc("GET /article/list", s.List)
-	s.mux.HandleFunc("POST /article/list?id={user_id}", s.List2)
 	s.mux.HandleFunc("PUT /article/update", s.Put)
 	s.mux.HandleFunc("POST /article/create/{user_id}", s.Create)
-	s.mux.HandleFunc("POST /article/*path", s.Path)
 	s.mux.HandleFunc("GET /article/html", s.HTML)
 }
 
@@ -67,27 +63,6 @@ func (s *UserService) List(w http.ResponseWriter, r *http.Request) {
 	}
 
 	out, err := s.server.List(r.Context(), &in)
-	if err != nil {
-		s.codec.Encode(w, r, err)
-		return
-	}
-	s.codec.Encode(w, r, out)
-	return
-}
-
-func (s *UserService) List2(w http.ResponseWriter, r *http.Request) {
-	var in ListRequest
-	if err := s.codec.Decode(r, &in); err != nil {
-		s.codec.Encode(w, r, err)
-		return
-	}
-
-	if err := s.codec.Validate(&in); err != nil {
-		s.codec.Encode(w, r, err)
-		return
-	}
-
-	out, err := s.server.List2(r.Context(), &in)
 	if err != nil {
 		s.codec.Encode(w, r, err)
 		return
@@ -129,26 +104,6 @@ func (s *UserService) Create(w http.ResponseWriter, r *http.Request) {
 	}
 
 	_, err := s.server.Create(r.Context(), &in)
-	if err != nil {
-		s.codec.Encode(w, r, err)
-		return
-	}
-	return
-}
-
-func (s *UserService) Path(w http.ResponseWriter, r *http.Request) {
-	var in PathRequest
-	if err := s.codec.Decode(r, &in); err != nil {
-		s.codec.Encode(w, r, err)
-		return
-	}
-
-	if err := s.codec.Validate(&in); err != nil {
-		s.codec.Encode(w, r, err)
-		return
-	}
-
-	_, err := s.server.Path(r.Context(), &in)
 	if err != nil {
 		s.codec.Encode(w, r, err)
 		return

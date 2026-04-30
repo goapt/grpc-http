@@ -7,27 +7,6 @@ info:
     description: User Service
     version: 0.0.1
 paths:
-    /article/*path:
-        post:
-            tags:
-                - UserService
-            operationId: UserService_Path
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/PathRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content: {}
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
     /article/create/{user_id}:
         post:
             tags:
@@ -60,6 +39,7 @@ paths:
         get:
             tags:
                 - UserService
+            description: HTML
             operationId: UserService_HTML
             responses:
                 "200":
@@ -84,37 +64,6 @@ paths:
                   schema:
                     type: integer
                     format: int32
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/ListResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /article/list?id={user_id}:
-        post:
-            tags:
-                - UserService
-            description: List2
-            operationId: UserService_List2
-            parameters:
-                - name: user_id
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/ListRequest'
-                required: true
             responses:
                 "200":
                     description: OK
@@ -180,11 +129,6 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/User'
-        PathRequest:
-            type: object
-            properties:
-                path:
-                    type: string
         Status:
             type: object
             properties:

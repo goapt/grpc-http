@@ -333,7 +333,7 @@ var File_user_v1_user_proto protoreflect.FileDescriptor
 
 const file_user_v1_user_proto_rawDesc = "" +
 	"\n" +
-	"\x12user/v1/user.proto\x12\vuser.api.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x19google/api/httpbody.proto\"\xb6\x01\n" +
+	"\x12user/v1/user.proto\x12\vuser.api.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/httpbody.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb6\x01\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
@@ -352,13 +352,11 @@ const file_user_v1_user_proto_rawDesc = "" +
 	"\vListRequest\x12\x12\n" +
 	"\x04page\x18\x01 \x01(\x05R\x04page\";\n" +
 	"\fListResponse\x12+\n" +
-	"\aresults\x18\x01 \x03(\v2\x11.user.api.v1.UserR\aresults2\xa1\x04\n" +
+	"\aresults\x18\x01 \x03(\v2\x11.user.api.v1.UserR\aresults2\xe7\x02\n" +
 	"\vUserService\x12R\n" +
-	"\x04List\x12\x18.user.api.v1.ListRequest\x1a\x19.user.api.v1.ListResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/article/list\x12c\n" +
-	"\x05List2\x12\x18.user.api.v1.ListRequest\x1a\x19.user.api.v1.ListResponse\"%\x82\xd3\xe4\x93\x02\x1f:\x01*\"\x1a/article/list?id={user_id}\x12S\n" +
+	"\x04List\x12\x18.user.api.v1.ListRequest\x1a\x19.user.api.v1.ListResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/article/list\x12S\n" +
 	"\x03Put\x12\x18.user.api.v1.ListRequest\x1a\x16.google.protobuf.Empty\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\x1a\x0f/article/update\x12b\n" +
-	"\x06Create\x12\x1a.user.api.v1.CreateRequest\x1a\x16.google.protobuf.Empty\"$\x82\xd3\xe4\x93\x02\x1e:\x01*\"\x19/article/create/{user_id}\x12S\n" +
-	"\x04Path\x12\x18.user.api.v1.PathRequest\x1a\x16.google.protobuf.Empty\"\x19\x82\xd3\xe4\x93\x02\x13:\x01*\"\x0e/article/*path\x12K\n" +
+	"\x06Create\x12\x1a.user.api.v1.CreateRequest\x1a\x16.google.protobuf.Empty\"$\x82\xd3\xe4\x93\x02\x1e:\x01*\"\x19/article/create/{user_id}\x12K\n" +
 	"\x04HTML\x12\x16.google.protobuf.Empty\x1a\x14.google.api.HttpBody\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/article/htmlB\xa6\x01\n" +
 	"\x0fcom.user.api.v1B\tUserProtoP\x01Z:github.com/goapt/grpc-http/example/proto/gen/user/v1;apiv1\xa2\x02\x03UAX\xaa\x02\vUser.Api.V1\xca\x02\vUser\\Api\\V1\xe2\x02\x17User\\Api\\V1\\GPBMetadata\xea\x02\rUser::Api::V1b\x06proto3"
 
@@ -391,19 +389,15 @@ var file_user_v1_user_proto_depIdxs = []int32{
 	6, // 1: user.api.v1.User.updated_at:type_name -> google.protobuf.Timestamp
 	0, // 2: user.api.v1.ListResponse.results:type_name -> user.api.v1.User
 	4, // 3: user.api.v1.UserService.List:input_type -> user.api.v1.ListRequest
-	4, // 4: user.api.v1.UserService.List2:input_type -> user.api.v1.ListRequest
-	4, // 5: user.api.v1.UserService.Put:input_type -> user.api.v1.ListRequest
-	1, // 6: user.api.v1.UserService.Create:input_type -> user.api.v1.CreateRequest
-	3, // 7: user.api.v1.UserService.Path:input_type -> user.api.v1.PathRequest
-	7, // 8: user.api.v1.UserService.HTML:input_type -> google.protobuf.Empty
-	5, // 9: user.api.v1.UserService.List:output_type -> user.api.v1.ListResponse
-	5, // 10: user.api.v1.UserService.List2:output_type -> user.api.v1.ListResponse
-	7, // 11: user.api.v1.UserService.Put:output_type -> google.protobuf.Empty
-	7, // 12: user.api.v1.UserService.Create:output_type -> google.protobuf.Empty
-	7, // 13: user.api.v1.UserService.Path:output_type -> google.protobuf.Empty
-	8, // 14: user.api.v1.UserService.HTML:output_type -> google.api.HttpBody
-	9, // [9:15] is the sub-list for method output_type
-	3, // [3:9] is the sub-list for method input_type
+	4, // 4: user.api.v1.UserService.Put:input_type -> user.api.v1.ListRequest
+	1, // 5: user.api.v1.UserService.Create:input_type -> user.api.v1.CreateRequest
+	7, // 6: user.api.v1.UserService.HTML:input_type -> google.protobuf.Empty
+	5, // 7: user.api.v1.UserService.List:output_type -> user.api.v1.ListResponse
+	7, // 8: user.api.v1.UserService.Put:output_type -> google.protobuf.Empty
+	7, // 9: user.api.v1.UserService.Create:output_type -> google.protobuf.Empty
+	8, // 10: user.api.v1.UserService.HTML:output_type -> google.api.HttpBody
+	7, // [7:11] is the sub-list for method output_type
+	3, // [3:7] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
 	3, // [3:3] is the sub-list for extension extendee
 	0, // [0:3] is the sub-list for field type_name
