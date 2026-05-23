@@ -22,7 +22,7 @@ const (
 
 var pathRe = regexp.MustCompile("{[^}]+}")
 
-// generateFile generates a _http.pb.go file containing kratos errors definitions.
+// generateFile generates a _http.pb.go file definitions.
 func generateFile(gen *protogen.Plugin, file *protogen.File, omitempty bool, runtimeGenerated map[string]bool) *protogen.GeneratedFile {
 	if len(file.Services) == 0 || (omitempty && !hasHTTPRule(file.Services)) {
 		return nil
@@ -44,13 +44,13 @@ func generateFile(gen *protogen.Plugin, file *protogen.File, omitempty bool, run
 	return g
 }
 
-// generateFileContent generates the kratos errors definitions, excluding the package statement.
+// generateFileContent generates the HTTP definitions, excluding the package statement.
 func generateFileContent(gen *protogen.Plugin, file *protogen.File, g *protogen.GeneratedFile, omitempty bool) {
 	if len(file.Services) == 0 {
 		return
 	}
 	g.P("// This is a compile-time assertion to ensure that this generated file")
-	g.P("// is compatible with the kratos package it is being compiled against.")
+	g.P("// is compatible with the grpc-http package it is being compiled against.")
 	g.P("// ", contextPackage.Ident(""), httpPackage.Ident(""))
 	g.P()
 	methodSets := make(map[string]int)
