@@ -49,15 +49,7 @@ func Register{{.ServiceType}}HTTPServer(mux ServeMux,codec Codec, srv {{.Service
             return
         }
     {{- end}}
-    {{- if eq .Reply "emptypb.Empty"}}
-
-        _, err := s.server.{{.Name}}(r.Context(), &in)
-        if err != nil {
-            s.codec.Encode(w, r, err)
-            return
-        }
-        return
-    {{- else if eq .Reply "httpbody.HttpBody"}}
+    {{- if eq .Reply "httpbody.HttpBody"}}
 
         out, err := s.server.{{.Name}}(r.Context(), &in)
         if err != nil {

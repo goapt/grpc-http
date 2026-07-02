@@ -82,11 +82,12 @@ func (s *UserService) Put(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, err := s.server.Put(r.Context(), &in)
+	out, err := s.server.Put(r.Context(), &in)
 	if err != nil {
 		s.codec.Encode(w, r, err)
 		return
 	}
+	s.codec.Encode(w, r, out)
 	return
 }
 
@@ -102,11 +103,12 @@ func (s *UserService) Create(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, err := s.server.Create(r.Context(), &in)
+	out, err := s.server.Create(r.Context(), &in)
 	if err != nil {
 		s.codec.Encode(w, r, err)
 		return
 	}
+	s.codec.Encode(w, r, out)
 	return
 }
 
